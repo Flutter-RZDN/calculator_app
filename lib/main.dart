@@ -27,10 +27,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  String textSelected = "";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff1E1E1E),
+      backgroundColor: const Color(0xff1E1E1E),
       body: Padding(
         padding: const EdgeInsets.only(top: 40.0),
         child: Column(
@@ -40,11 +42,12 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 Container(),
                 Container(
-                  height: 50,
-                  width: 50,
+                  height: 45,
+                  width: 45,
                   decoration: BoxDecoration(
-                    color: Color(0xff1E1E1E),
-                    border: Border.all(color: Color(0xffF37843), width: 2.0),
+                    color: const Color(0xff1E1E1E),
+                    border:
+                        Border.all(color: const Color(0xffF37843), width: 2.0),
                     borderRadius: BorderRadius.circular(10.0),
                     boxShadow: const [
                       BoxShadow(
@@ -59,17 +62,18 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Center(
                     child: Image.asset(
                       "assets/icons/igual.png",
-                      height: 40.0,
-                      color: Color(0xffF37843),
+                      height: 35.0,
+                      color: const Color(0xffF37843),
                     ),
                   ),
                 ),
                 Container(
-                  height: 50,
-                  width: 50,
+                  height: 45,
+                  width: 45,
                   decoration: BoxDecoration(
-                    color: Color(0xff1E1E1E),
-                    border: Border.all(color: Color(0xff686767), width: 2.0),
+                    color: const Color(0xff1E1E1E),
+                    border:
+                        Border.all(color: const Color(0xff686767), width: 2.0),
                     borderRadius: BorderRadius.circular(10.0),
                     boxShadow: const [
                       BoxShadow(
@@ -90,12 +94,12 @@ class _MyHomePageState extends State<MyHomePage> {
                           Image.asset(
                             "assets/icons/pastel-de-cumpleanos.png",
                             height: 20.0,
-                            color: Color(0xff686767),
+                            color: const Color(0xff686767),
                           ),
                           Image.asset(
                             "assets/icons/discount.png",
                             height: 20.0,
-                            color: Color(0xff686767),
+                            color: const Color(0xff686767),
                           ),
                         ],
                       ),
@@ -105,12 +109,12 @@ class _MyHomePageState extends State<MyHomePage> {
                           Image.asset(
                             "assets/icons/igual.png",
                             height: 20.0,
-                            color: Color(0xff686767),
+                            color: const Color(0xff686767),
                           ),
                           Image.asset(
                             "assets/icons/termometro.png",
                             height: 20.0,
-                            color: Color(0xff686767),
+                            color: const Color(0xff686767),
                           ),
                         ],
                       ),
@@ -118,11 +122,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 Container(
-                  height: 50,
-                  width: 50,
+                  height: 45,
+                  width: 45,
                   decoration: BoxDecoration(
-                    color: Color(0xff1E1E1E),
-                    border: Border.all(color: Color(0xff686767), width: 2.0),
+                    color: const Color(0xff1E1E1E),
+                    border:
+                        Border.all(color: const Color(0xff686767), width: 2.0),
                     borderRadius: BorderRadius.circular(10.0),
                     boxShadow: const [
                       BoxShadow(
@@ -137,8 +142,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Center(
                     child: Image.asset(
                       "assets/icons/casa.png",
-                      height: 40.0,
-                      color: Color(0xff686767),
+                      height: 35.0,
+                      color: const Color(0xff686767),
                     ),
                   ),
                 ),
@@ -151,7 +156,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   Expanded(
                     flex: 4,
-                    child: Container(),
+                    child: Center(
+                      child: Text(
+                        textSelected,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 40.0,
+                        ),
+                      ),
+                    ),
                   ),
                   Expanded(
                     flex: 5,
@@ -164,18 +177,25 @@ class _MyHomePageState extends State<MyHomePage> {
                           children: [
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: const [
-                                Center(
-                                  child: Text(
-                                    "C",
-                                    style: TextStyle(
-                                      fontSize: 40.0,
-                                      color: Color(0xffF37843),
-                                      fontWeight: FontWeight.w700,
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      textSelected = "";
+                                    });
+                                  },
+                                  child: const Center(
+                                    child: Text(
+                                      "C",
+                                      style: TextStyle(
+                                        fontSize: 40.0,
+                                        color: Color(0xffF37843),
+                                        fontWeight: FontWeight.w700,
+                                      ),
                                     ),
                                   ),
                                 ),
-                                Center(
+                                const Center(
                                   child: Text(
                                     "+/-",
                                     style: TextStyle(
@@ -185,7 +205,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     ),
                                   ),
                                 ),
-                                Center(
+                                const Center(
                                   child: Text(
                                     "%",
                                     style: TextStyle(
@@ -195,7 +215,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     ),
                                   ),
                                 ),
-                                Center(
+                                const Center(
                                   child: Text(
                                     "/",
                                     style: TextStyle(
@@ -209,18 +229,25 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: const [
-                                Center(
-                                  child: Text(
-                                    "7",
-                                    style: TextStyle(
-                                      fontSize: 40.0,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w700,
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      textSelected = "${textSelected}7";
+                                    });
+                                  },
+                                  child: const Center(
+                                    child: Text(
+                                      "7",
+                                      style: TextStyle(
+                                        fontSize: 40.0,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w700,
+                                      ),
                                     ),
                                   ),
                                 ),
-                                Center(
+                                const Center(
                                   child: Text(
                                     "8",
                                     style: TextStyle(
@@ -230,7 +257,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     ),
                                   ),
                                 ),
-                                Center(
+                                const Center(
                                   child: Text(
                                     "9",
                                     style: TextStyle(
@@ -240,7 +267,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     ),
                                   ),
                                 ),
-                                Center(
+                                const Center(
                                   child: Text(
                                     "X",
                                     style: TextStyle(
